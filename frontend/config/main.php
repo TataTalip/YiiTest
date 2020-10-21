@@ -20,6 +20,9 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
+        'common'=> [
+            'class' => 'frontend\components\Common',
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

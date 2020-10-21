@@ -11,7 +11,6 @@ class MainController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        $this->layout = "bootstrap";
         return $this->render('index');
     }
 
