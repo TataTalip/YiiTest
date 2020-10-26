@@ -12,6 +12,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $repassword;
 
 
     /**
@@ -33,6 +34,7 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['repassword', 'compare', 'compareAttribute' => 'password'],
         ];
     }
 
@@ -44,15 +46,18 @@ class SignupForm extends Model
     public function signup()
     {
         if (!$this->validate()) {
-            return null;
-        }
-        
-        $user = new User();
-        $user->username = $this->username;
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        
-        return $user->save() ? $user : null;
+            return "Reg Suc";
+              }
+        /*
+         $user = new User();
+         $user->username = $this->username;
+         $user->email = $this->email;
+         $user->setPassword($this->password);
+         $user->generateAuthKey();
+
+         return $user->save() ? $user : null;*/
+
+        return null;
     }
+
 }
